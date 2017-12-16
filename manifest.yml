@@ -1,0 +1,27 @@
+---
+applications:
+- name: Eureka-Server-I317066
+#  host: approuter-i317066
+#  path: src/main/approuter
+  memory: 1024M
+  path: target/demo-0.0.1-SNAPSHOT.jar
+#  host: eureka-server
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git#v4.6
+#  buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.10
+  env: 
+#    XSAPPNAME: Eureka-Server-I317066
+#    TENANT_HOST_PATTERN: "^(.*)-approuter-i317066.cfapps.sap.hana.ondemand.com"
+#    destinations: >
+#      [
+#        {
+#          "name":"eureka_server-destination",
+#          "url":"https://eureka-server-i317066-i317066.cfapps.sap.hana.ondemand.com/",
+#          "forwardAuthToken":true
+#        }
+#      ]
+
+#      # Use the non-blocking /dev/urandom instead of the default to generate random numbers.
+#      # This may help with slow startup times, especially when using Spring Boot.
+      JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
+#  services: 
+#    - uaa-eureka-server-i317066
